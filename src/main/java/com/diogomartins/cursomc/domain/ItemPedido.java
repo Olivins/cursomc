@@ -18,7 +18,7 @@ public class ItemPedido implements Serializable{
 	
 	private Double desconto;
 	private Integer quantidade;
-	private Double preço;
+	private Double preco;
 	
 	
 	public ItemPedido() {
@@ -31,12 +31,12 @@ public class ItemPedido implements Serializable{
 		id.setProduto(produto);
 		this.desconto = desconto;
 		this.quantidade = quantidade;
-		this.preço = preço;
+		this.preco = preço;
 	}
 	
 	public Double getSubTotal() {
 		Double subTotal;
-		subTotal = (preço-desconto)*quantidade;
+		subTotal = (preco-desconto)*quantidade;
 		return subTotal;
 	}
 	
@@ -72,12 +72,12 @@ public class ItemPedido implements Serializable{
 		this.quantidade = quantidade;
 	}
 
-	public Double getPreço() {
-		return preço;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public void setPreço(Double preço) {
-		this.preço = preço;
+	public void setPreco(Double preço) {
+		this.preco = preço;
 	}
 
 	@Override
