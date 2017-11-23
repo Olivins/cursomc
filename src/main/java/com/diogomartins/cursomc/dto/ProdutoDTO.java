@@ -2,6 +2,9 @@ package com.diogomartins.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -16,7 +19,11 @@ public class ProdutoDTO implements Serializable {
 	@Length(min=5, max=80, message="O tamanho deve ser entre 5 e 80 caracteres")
 	private String nome;
 	
+	@DecimalMin("0.01") 
+	@DecimalMax("99999999999999999.00")
 	private Double preco;
+	
+	private Integer categoriaId;
 
 	public ProdutoDTO() {
 	}
@@ -25,6 +32,7 @@ public class ProdutoDTO implements Serializable {
 		id = obj.getId();
 		nome = obj.getNome();
 		preco = obj.getPreco();
+		setCategoriaId(obj.getId());
 	}
 
 	public Integer getId() {
@@ -50,4 +58,13 @@ public class ProdutoDTO implements Serializable {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+
+	public Integer getCategoriaId() {
+		return categoriaId;
+	}
+
+	public void setCategoriaId(Integer categoriaId) {
+		this.categoriaId = categoriaId;
+	}
+
 }
